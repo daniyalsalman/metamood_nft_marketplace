@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New NFT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <h1>MetaMood</h1>
+            <div class="nav-links">
+                <a href="/nfts{% if user_id %}?user_id={{ user_id }}{% endif %}">Home</a>
+                <a href="/collections{% if user_id %}?user_id={{ user_id }}{% endif %}">Collections</a>
+                <a href="/reports{% if user_id %}?user_id={{ user_id }}{% endif %}">Reports</a>
+                <a href="/categories{% if user_id %}?user_id={{ user_id }}{% endif %}">Categories</a>
+                {% if user_id %}
+                <a href="/users/{{ user_id }}/wallet">My Wallet</a>
+                {% endif %}
+                <a href="/login" id="loginBtn">Login</a>
+                <a href="/register" id="registerBtn">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="form-container">
+            <h2>Create a New NFT</h2>
+            <form id="createNftForm">
+                <div class="form-group">
+                    <label for="Title">Title:</label>
+                    <input type="text" id="Title" name="Title" required>
+                </div>
+                <div class="form-group">
+                    <label for="Description">Description:</label>
+                    <textarea id="Description" name="Description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="OwnerID">Owner User ID:</label>
+                    <input type="number" id="OwnerID" name="OwnerID" required>
+                </div>
+                <div class="form-group">
+                    <label for="collection">Collection (Optional)</label>
+                    <select id="collection" name="collection_id">
+                        <option value="">None</option>
+                        <!-- Collections will be loaded here by JavaScript -->
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Create NFT</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 MetaMood</p>
+        </div>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html> 

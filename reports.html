@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFT Reports - MetaMood</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1.0.4">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <h1>MetaMood</h1>
+            <div class="nav-links">
+                <a href="/nfts{% if user_id %}?user_id={{ user_id }}{% endif %}">Home</a>
+                <a href="/collections{% if user_id %}?user_id={{ user_id }}{% endif %}">Collections</a>
+                <a href="/reports{% if user_id %}?user_id={{ user_id }}{% endif %}" class="active">Reports</a>
+                <a href="/categories{% if user_id %}?user_id={{ user_id }}{% endif %}">Categories</a>
+                {% if user_id %}
+                <a href="/users/{{ user_id }}/wallet">My Wallet</a>
+                {% endif %}
+                <a href="/login">Login</a>
+                <a href="/register">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="page-header">
+            <h2>NFT Reports</h2>
+            <p class="page-description">Help us maintain a safe and trustworthy NFT marketplace by reporting any suspicious or inappropriate content.</p>
+        </div>
+
+        <div class="reports-container">
+            <section class="report-form-section">
+                <div class="section-header">
+                    <h3>Submit a New Report</h3>
+                    <p class="section-description">Please provide details about the NFT you want to report.</p>
+                </div>
+                <form id="reportForm" class="report-form">
+                    <div class="form-group">
+                        <label for="reporterUsername">Your Username</label>
+                        <input type="text" id="reporterUsername" name="ReporterUsername" placeholder="Enter your username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nftId">NFT ID</label>
+                        <input type="number" id="nftId" name="NFTID" placeholder="Enter the NFT ID you want to report" required>
+                        <p class="input-help">You can find the NFT ID in the NFT's detail page URL</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="reason">Reason for Report</label>
+                        <textarea id="reason" name="Reason" rows="4" placeholder="Please provide a detailed explanation of why you're reporting this NFT" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Report</button>
+                </form>
+            </section>
+
+            <section class="reports-list-section">
+                <div class="section-header">
+                    <h3>Existing Reports</h3>
+                    <p class="section-description">Recent reports submitted by the community.</p>
+                </div>
+                <div id="reportsList" class="reports-grid">
+                    <!-- Existing reports will be loaded here -->
+                    <div class="loading">
+                        <p>Loading reports...</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 MetaMood</p>
+        </div>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html> 
