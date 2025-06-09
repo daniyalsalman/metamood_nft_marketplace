@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories - MetaMood</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <h1>MetaMood</h1>
+            <div class="nav-links">
+                <a href="/nfts">Home</a>
+                <a href="/collections">Collections</a>
+                <a href="/reports">Reports</a>
+                <a href="/categories" class="active">Categories</a>
+                {% if user_id %}
+                <a href="/users/{{ user_id }}/wallet">My Wallet</a>
+                {% endif %}
+                <a href="/login" id="loginBtn">Login</a>
+                <a href="/register" id="registerBtn">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="page-header">
+            <h2>Categories</h2>
+            {% if user_id %}
+            <button id="createCategoryBtn" class="btn btn-primary">Create Category</button>
+            {% endif %}
+        </div>
+
+        <!-- Create Category Form (Hidden by default) -->
+        <div id="createCategoryForm" class="form-container" style="display: none;">
+            <h3>Create New Category</h3>
+            <form id="categoryForm">
+                <div class="form-group">
+                    <label for="categoryName">Category Name:</label>
+                    <input type="text" id="categoryName" name="categoryName" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Create Category</button>
+                    <button type="button" class="btn btn-secondary" id="cancelCategoryBtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+
+        <ul id="categoriesList" class="category-grid">
+            <!-- Categories will be loaded here by JavaScript -->
+        </ul>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 MetaMood</p>
+        </div>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html> 

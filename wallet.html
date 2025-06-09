@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Wallet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1.0.1">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <h1>MetaMood</h1>
+            <div class="nav-links">
+                <a href="/nfts">Home</a>
+                
+                <a href="/collections">Collections</a>
+                <a href="/reports">Reports</a>
+                <a href="/categories">Categories</a>
+                {% if user_id %}
+                <a href="/users/{{ user_id }}/wallet" class="active">My Wallet</a>
+                {% endif %}
+                <a href="/login">Login</a>
+                <a href="/register">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <h2>My Wallet</h2>
+        <div id="walletDetails">
+            <!-- Wallet details will be loaded here -->
+            <p>Loading wallet details...</p>
+        </div>
+    </main>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html> 

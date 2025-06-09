@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaMood NFT Marketplace</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <h1>MetaMood</h1>
+            <div class="nav-links">
+                <a href="/nfts" class="active">Home</a>
+                <a href="/collections">Collections</a>
+                <a href="/reports">Reports</a>
+                <a href="/categories">Categories</a>
+                {% if user_id %}
+                <a href="/users/{{ user_id }}/wallet">My Wallet</a>
+                {% endif %}
+                <a href="/login" id="loginBtn">Login</a>
+                <a href="/register" id="registerBtn">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h2>Welcome to MetaMood</h2>
+            <p>Discover and trade unique NFTs</p>
+            {% if user_id %}
+            <a href="/create-nft?user_id={{ user_id }}" class="btn btn-primary hero-btn">Create New NFT</a>
+            {% endif %}
+        </section>
+
+        <section class="featured-nfts">
+            <h3>Featured NFTs</h3>
+            <div id="nftGrid" class="nft-grid">
+                <!-- NFTs will be loaded here -->
+            </div>
+        </section>
+    </main>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html> 

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFT Detail - {{ nft.Title }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <h1>MetaMood</h1>
+            <div class="nav-links">
+                <a href="/nfts" class="active">Home</a>
+                <a href="/collections">Collections</a>
+                <a href="/reports">Reports</a>
+                <a href="/categories">Categories</a>
+                <a href="/login" id="loginBtn">Login</a>
+                <a href="/register" id="registerBtn">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="nft-detail">
+            <h2>{{ nft.Title }}</h2>
+            <p><strong>Description:</strong> {{ nft.Description }}</p>
+            <p><strong>Owner:</strong> {{ nft.Owner.Username }} (ID: {{ nft.Owner.UserID }})</p>
+            {% if nft.Collection %}
+            <p><strong>Collection:</strong> {{ nft.Collection.CollectionName }} (ID: {{ nft.Collection.CollectionID }})</p>
+            {% endif %}
+            <p><strong>Minted At:</strong> {{ nft.MintedAt }}</p>
+            
+            {% if nft.ListingPrice is not none %}
+            <p><strong>Current Price:</strong> {{ nft.ListingPrice }}</p>
+            
+            <section class="place-bid">
+                <h3>Place a Bid</h3>
+                <form id="bidForm">
+                    <div>
+                        <label for="bidAmount">Your Bid Amount:</label>
+                        <input type="number" id="bidAmount" name="BidAmount" step="0.01" required min="0">
+                    </div>
+                    <!-- Temporarily use a fixed UserID or input field for testing. 
+                         In a real app, this would come from the logged-in user session. -->
+                    <div>
+                         <label for="bidderId">Your Username:</label>
+                         <input type="text" id="bidderId" name="BidderUsername" required>
+                    </div>
+                    <input type="hidden" name="NFTID" value="{{ nft.NFTID }}">
+                    <button type="submit">Submit Bid</button>
+                </form>
+                <p id="bidMessage"></p> <!-- To display success or error messages -->
+            </section>
+
+            {% endif %}
+
+            <p><strong>Views:</strong> {{ nft.ViewCount }}</p>
+
+            {% if nft.Tags %}
+            <p><strong>Tags:</strong> 
+                {% for tag in nft.Tags %}
+                    <span class="tag">{{ tag }}</span>{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            </p>
+            {% endif %}
+
+            <!-- Add more details as needed, e.g., bids -->
+
+        </section>
+
+        <section class="nft-bids">
+            <h3>Bids</h3>
+            <ul>
+                {% for bid in nft.Bids %}
+                <li>
+                    <strong>{{ bid.BidderUsername }}</strong> bid {{ bid.BidAmount }} at {{ bid.BidAt }}
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2023 MetaMood</p>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html> 
