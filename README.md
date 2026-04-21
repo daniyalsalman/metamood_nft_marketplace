@@ -60,9 +60,15 @@ A web-based NFT marketplace built with FastAPI and SQL Server.
 
 ## Author
 
-Daniyal,
-Muhammad Atif,
-Muhammad Usman
+Muhammad Usman Khan
+  GitHub: https://github.com/Usman1dev
+  LinkedIn: https://www.linkedin.com/in/usman0310
+Muhammad Atif
+  GitHub: https://github.com/Muhammadatif153700 
+Daniyal Salman
+  GitHub: https://github.com/daniyalsalman
+
+  
 
 ## License
 
