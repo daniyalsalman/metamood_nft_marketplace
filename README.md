@@ -59,14 +59,13 @@ A web-based NFT marketplace built with FastAPI and SQL Server.
 - `/api/reports` - Reporting system
 
 ## Author
-
-Muhammad Usman Khan
-  GitHub: https://github.com/Usman1dev
-  LinkedIn: https://www.linkedin.com/in/usman0310
-Muhammad Atif
-  GitHub: https://github.com/Muhammadatif153700 
-Daniyal Salman
-  GitHub: https://github.com/daniyalsalman
+*Muhammad Usman Khan*<br>
+  GitHub: https://github.com/Usman1dev<br>
+  LinkedIn: https://www.linkedin.com/in/usman0310<br>
+ *Muhammad Atif*<br>
+  GitHub: https://github.com/Muhammadatif153700 <br>
+*Daniyal Salman*<br>
+  GitHub: https://github.com/daniyalsalman<br> 
 
   
 
